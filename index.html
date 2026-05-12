@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The next generation of Liquid Staking for Taller Labs validators on Solana"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Liquid Node | Premium Staking</title>
+    <style>
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.75rem;
+        background: radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            rgba(34, 211, 238, 0.08),
+            transparent
+          ),
+          #020204;
+        transition:
+          opacity 0.45s ease,
+          visibility 0.45s ease;
+      }
+      #loader.loader--hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .loader__spinner {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid rgba(139, 92, 246, 0.2);
+        border-top-color: rgba(34, 211, 238, 0.95);
+        border-right-color: rgba(139, 92, 246, 0.75);
+        animation: loader-spin 0.85s linear infinite;
+        box-shadow:
+          0 0 24px -6px rgba(34, 211, 238, 0.45),
+          inset 0 0 20px -12px rgba(139, 92, 246, 0.35);
+      }
+      @keyframes loader-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .loader__text {
+        margin: 0;
+        max-width: 22rem;
+        padding: 0 1rem;
+        font-family:
+          'JetBrains Mono',
+          ui-monospace,
+          'Cascadia Code',
+          monospace;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(148, 163, 184, 0.95);
+        text-align: center;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader" role="status" aria-live="polite" aria-busy="true">
+      <div class="loader__spinner" aria-hidden="true"></div>
+      <p class="loader__text">Initializing Liquid Node Protocol...</p>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
